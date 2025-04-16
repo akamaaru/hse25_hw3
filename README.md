@@ -12,16 +12,16 @@
 Скачаем контрольным экспериментом и выравнивание 10-ти разных гистоновых модификаций:
 |  Гистонная метка | Название файла  |
 |---|---|
-| Control | ControlStdAlnRep1.bam |
-|Ezh239875 |	Ezh239875AlnRep1.bam	|
-| H2az	| H2azAlnRep1.bam |
-|	H3k09me3	| H3k09me3AlnRep1.bam |
-|	H3k4me1Std|	H3k4me1StdAlnRep1.bam |
-|	H3k9acStd	|H3k9acStdAlnRep1.bam |
-|	H3k9me1Std|	H3k9me1StdAlnRep1.bam |
-|	H3k27acStd	|H3k27acStdAlnRep1.bam |
-|	H3k27me3Std	|H3k27me3StdAlnRep1.bam |
-|	H3k36me3Std	|H3k36me3StdAlnRep1.bam |
-|	H3k79me2	|H3k79me2AlnRep1.bam |
+| Control | wgEncodeBroadHistoneHuvecControlStdAlnRep1.bam |
+|Ezh239875 |	wgEncodeBroadHistoneHuvecEzh239875AlnRep1.bam	|
+| H2az	| wgEncodeBroadHistoneHuvecH2azAlnRep1.bam |
+|	H3k09me3	| wgEncodeBroadHistoneHuvecH3k09me3AlnRep1.bam |
+|	H3k4me1Std|	wgEncodeBroadHistoneHuvecH3k4me1StdAlnRep1.bam |
+|	H3k9acStd	| wgEncodeBroadHistoneHuvecH3k9acStdAlnRep1.bam |
+|	H3k9me1Std|	wgEncodeBroadHistoneHuvecH3k9me1StdAlnRep1.bam |
+|	H3k27acStd	| wgEncodeBroadHistoneHuvecH3k27acStdAlnRep1.bam |
+|	H3k27me3Std	| wgEncodeBroadHistoneHuvecH3k27me3StdAlnRep1.bam |
+|	H3k36me3Std	| wgEncodeBroadHistoneHuvecH3k36me3StdAlnRep1.bam |
+|	H3k79me2	| wgEncodeBroadHistoneHuvecH3k79me2AlnRep1.bam |
 
 После отработки `ChromHMM` с опциями `BinarizeBAM` и `LearnModel` получим результат с разбиением на интервалы.
