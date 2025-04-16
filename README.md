@@ -58,3 +58,8 @@
 | 14    | Repeat/Artifact                    | -                                                | Повторы, технические артефакты                               |
 | 15    | Quiescent/Low Activity             | -                                              | Без признаков активности                                     |
 
+Теперь в наш `Huvec_15_expanded.bed` добавим названия, которые мы дали. 
+Получится файл `Huvec_15_annotated.bed`, который можно найти в той же папке с результатами.
+Откроем эту разметку в геномном браузере:
+
+![](https://github.com/akamaaru/hse25_hw3/blob/main/img/browser_annotated.png)
