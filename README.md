@@ -25,3 +25,7 @@
 |	H3k79me2	| wgEncodeBroadHistoneHuvecH3k79me2AlnRep1.bam |
 
 После отработки `ChromHMM` с опциями `BinarizeBAM` и `LearnModel` получим результат с разбиением на интервалы.
+
+| | | | | |
+|---|---|---|---|---|
+| ![](https://github.com/akamaaru/hse25_hw3/blob/main/img/emissions.png) | ![](https://github.com/akamaaru/hse25_hw3/blob/main/img/transitions.png) | ![](https://github.com/akamaaru/hse25_hw3/blob/main/img/overlap.png) |![](https://github.com/akamaaru/hse25_hw3/blob/main/img/RefSeqTES_neighborhood.png) | ![](https://github.com/akamaaru/hse25_hw3/blob/main/img/RefSeqTSS_neighborhood.png)|
