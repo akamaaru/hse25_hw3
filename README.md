@@ -24,7 +24,17 @@
 |	H3k36me3Std	| wgEncodeBroadHistoneHuvecH3k36me3StdAlnRep1.bam |
 |	H3k79me2	| wgEncodeBroadHistoneHuvecH3k79me2AlnRep1.bam |
 
-После отработки `ChromHMM` с опциями `BinarizeBAM` и `LearnModel` получим результат с разбиением на интервалы.
+Запустим `ChromHMM` с опциями `BinarizeBAM`:
+```
+java -mx5000M -jar /content/ChromHMM/ChromHMM.jar \
+  BinarizeBam -b 200  /content/ChromHMM/CHROMSIZES/hg19.txt /content/ cellmarkfiletable.txt   binarizedData
+```
+Далее обучим на обработанных данных с опцией `LearnModel`, ставим целью разбивку на 15 типов:
+```
+java -mx5000M -jar /content/ChromHMM/ChromHMM.jar LearnModel -b 200 /content/binarizedData/ /content/learnModelData 15 hg19
+```
+
+После отработки `ChromHMM` получим результат с разбиением на интервалы и с графиками, описывающими разбиение:
 
 | | | | | |
 |---|---|---|---|---|
@@ -70,7 +80,25 @@
 а потом с помощью программы `SAGAconf` посчитаем R2-score для каждой из модификаций, 
 указав программе как результат разбиения первой группы реплик, так и второй.
 
-Так как при выполнении основного задания апостериорные вероятности не вычислялись, пришлось запустить программу во второй раз для каждой из реплик.
+Так как при обучении модели в основной части задания апостериорные вероятности не вычислялись, пришлось запустить программу во второй раз для каждой из реплик:
+```
+java -mx1600M -jar ChromHMM/ChromHMM.jar \
+  LearnModel -printposterior /content/binarizedData/ /content/learnModelDataPosterior 15 hg19
+java -mx1600M -jar ChromHMM/ChromHMM.jar \
+  LearnModel -printposterior /content/binarizedData2/ /content/learnModelDataPosterior2 15 hg19
+```
+Парсим данные с помощью `SAGAconf_parser`:
+```
+python SAGAconf/SAGAconf_parser.py --out_format bed --saga chmm \
+  learnModelDataPosterior/POSTERIOR/ 200 SAGAconfRes/rep1
+python SAGAconf/SAGAconf_parser.py --out_format bed --saga chmm \
+  learnModelDataPosterior2/POSTERIOR/ 200 SAGAconfRes/rep2
+```
+Теперь запускаем сам `SAGAconf`:
+```
+python SAGAconf/SAGAconf.py \
+  SAGAconfRes/rep1/parsed_posterior.bed SAGAconfRes/rep2/parsed_posterior.bed SAGAconfRes/res
+```
 
 Получилась следующая таблица:
 
